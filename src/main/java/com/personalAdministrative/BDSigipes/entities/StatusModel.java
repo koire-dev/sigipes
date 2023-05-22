@@ -1,20 +1,23 @@
 package com.personalAdministrative.BDSigipes.entities;
 
-import com.fasterxml.jackson.core.SerializableString;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
-public class statut implements Serializable {
+public class StatusModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idStatut;
 
-    @Column(name="Statut_personnel", nullable=false)
-    private String libelleStat;
+    @Column(name="label", nullable=false)
+    private String label;
 
 }
