@@ -13,17 +13,21 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Data
-public class StatusModel implements Serializable {
+public class CategoryModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idStatus;
+    private Long idCategory;
 
     @Column(name="label", nullable=false)
     private String label;
 
+//    private ClassModel classes;
+//    private IndicesModel indices;
+//    private EchelonModel echelon;
+
 //    @JsonIgnore
-//    @OneToMany(mappedBy = "status")
+//    @OneToMany(mappedBy = "category")
 //    private Set<PersonnelModel> personnel;
 
 }

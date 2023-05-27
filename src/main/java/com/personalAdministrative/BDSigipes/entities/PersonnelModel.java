@@ -14,41 +14,40 @@ public class PersonnelModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String matricule;
+    private String number;
 
-    @Column(name="nom_prenom", nullable=false)
-    private String nom_prenom;
+    @Column(name="name", nullable=false)
+    private String name;
 
-    @Column(name="date_naissance", nullable=false)
-    private Date date_naissance;
+    @Column(name="date_birth", nullable=false)
+    private Date date_birth;
 
-    @Column(name="lieu_naissance", nullable=false)
-    private String lieu_naissance;
+    @Column(name="lieu_birth", nullable=false)
+    private String lieu_birth;
 
-    @Column(name="date_embauche", nullable=false)
-    private Date date_embauche;
+    @Column(name="date_hiring", nullable=false)
+    private Date date_hiring;
 
     @Column(name="administration", nullable=false)
     private String administration;
 
-    @Column(name="date_retraite", nullable=false)
-    private Date date_retraite;
+    @Column(name="date_retirement", nullable=false)
+    private Date date_retirement;
 
-    @Column(name="type_personnel", nullable=false)
-    private TypePersonnelModel typePersonnel;
+    @Column(name="indices_sold", nullable=false)
+    private String indices_sold;
 
-    @Column(name="service", nullable=false)
-    private ServiceModel service;
-
-    @Column(name="corps", nullable=false)
-    private CorpsModel corps;
-
-    @Column(name="grade", nullable=false)
-    private GradeModel grade;
-
-    @Column(name="categorie", nullable=false)
-    private CategorieModel categorie;
-
-    @Column(name="indice_solde", nullable=false)
-    private String indice_solde;
+//    private TypePersonnelModel typePersonnel;
+//
+//    private ServiceModel service;
+//
+//    private CorpsModel corps;
+//
+//    private GradeModel grade;
+//
+//    private CategoryModel category;
+//
+//    private StatusModel status;
+//
+//    private FunctionModel function;
 }

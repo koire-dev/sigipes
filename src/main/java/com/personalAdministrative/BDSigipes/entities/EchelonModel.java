@@ -9,21 +9,20 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Set;
 
+@Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Data
-public class StatusModel implements Serializable {
+public class EchelonModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idStatus;
+    private Long idEchelon;
 
-    @Column(name="label", nullable=false)
-    private String label;
+    @Column(nullable = false)
+    private int value;
 
 //    @JsonIgnore
-//    @OneToMany(mappedBy = "status")
-//    private Set<PersonnelModel> personnel;
-
+//    @OneToMany(mappedBy = "echelon")
+//    private Set<CategoryModel> category;
 }
