@@ -1,5 +1,6 @@
 package com.personalAdministrative.BDSigipes.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,17 +38,38 @@ public class PersonnelModel implements Serializable {
     @Column(name="indices_sold", nullable=false)
     private String indices_sold;
 
-//    private TypePersonnelModel typePersonnel;
-//
-//    private ServiceModel service;
-//
-//    private CorpsModel corps;
-//
-//    private GradeModel grade;
-//
-//    private CategoryModel category;
-//
-//    private StatusModel status;
-//
-//    private FunctionModel function;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "typeId", referencedColumnName = "idType")
+    @JsonIgnoreProperties("personnel")
+    private TypePersonnelModel typePersonnel;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "serviceId", referencedColumnName = "idService")
+    @JsonIgnoreProperties("personnel")
+    private ServiceModel service;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "corpsId", referencedColumnName = "idCorps")
+    @JsonIgnoreProperties("personnel")
+    private CorpsModel corps;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "gradeId", referencedColumnName = "idGrade")
+    @JsonIgnoreProperties("personnel")
+    private GradeModel grade;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "categoryId", referencedColumnName = "idCategory")
+    @JsonIgnoreProperties("personnel")
+    private CategoryModel category;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "statusId", referencedColumnName = "idStatus")
+    @JsonIgnoreProperties("personnel")
+    private StatusModel status;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "functionId", referencedColumnName = "idFunction")
+    @JsonIgnoreProperties("personnel")
+    private FunctionModel function;
 }

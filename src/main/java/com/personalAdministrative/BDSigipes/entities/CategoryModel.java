@@ -1,6 +1,7 @@
 package com.personalAdministrative.BDSigipes.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,12 +23,23 @@ public class CategoryModel implements Serializable {
     @Column(name="label", nullable=false)
     private String label;
 
-//    private ClassModel classes;
-//    private IndicesModel indices;
-//    private EchelonModel echelon;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "classId", referencedColumnName = "idClass")
+    @JsonIgnoreProperties("category")
+    private ClassModel classes;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "category")
-//    private Set<PersonnelModel> personnel;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "indicesId", referencedColumnName = "idIndices")
+    @JsonIgnoreProperties("category")
+    private IndicesModel indices;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "echelonId", referencedColumnName = "idEchelon")
+    @JsonIgnoreProperties("category")
+    private EchelonModel echelon;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("category")
+    private Set<PersonnelModel> personnel;
 
 }

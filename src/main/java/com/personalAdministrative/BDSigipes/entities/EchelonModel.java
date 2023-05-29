@@ -1,6 +1,7 @@
 package com.personalAdministrative.BDSigipes.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class EchelonModel implements Serializable {
     @Column(nullable = false)
     private int value;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "echelon")
-//    private Set<CategoryModel> category;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "echelon", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("echelon")
+    private Set<CategoryModel> category;
 }
