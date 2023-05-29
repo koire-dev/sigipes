@@ -1,6 +1,7 @@
 package com.personalAdministrative.BDSigipes.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class IndicesModel implements Serializable {
     @Column(nullable = false)
     private int value;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "indices")
-//    private Set<CategoryModel> category;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "indices", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("indices")
+    private Set<CategoryModel> category;
 }
